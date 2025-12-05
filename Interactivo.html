@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #header {
+      background-color: #74e651;
+      border-radius: 10px;
+      padding: 5px;
+    }
+
+    .nav {
+      padding-right: 20px;
+    }
+
+    .nav ul li{
+      display:inline;
+      padding:0 10px
+    }
+
+    h1 {
+      text-align: center;
+      color: black;
+      margin: 8px;
+    }
+    #seccion {
+      display: flex;
+      flex-direction: row;
+      flex-wrap:wrap
+    }
+
+    .barra {
+      padding: 10px;
+      margin:5px;
+      background: aqua;
+      flex:3;
+      border-radius:10px;
+      display:flex;
+      flex-flow:column;
+      align-items:center;
+    }
+
+    .contenido {
+      padding: 10px;
+      border-radius:10px;
+      background: rgb(251,241,100);
+      margin:5px;
+      flex:1 150px;
+    }
+
+    .subcontenido2 {
+      display:flex;
+      flex-direction:row;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+
+    #resultado {
+      display:flex;
+      flex-direction:column;
+      flex-wrap:wrap;
+      align-items: center;
+    }
+    
+    #footer {
+      background-color: white;
+      height: 100%;
+      text-align: center;
+      padding-top: 10px;
+      border-radius: 10px;
+      display:flex;
+      flex-flow:row;
+    }
+    .pie {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    #galeria{
+      display:flex;
+      flex-direction:row;
+      flex-wrap:wrap; 
+      height:100px;
+    }
+
+    .proyecto{
+      
+      height:150px;
+      max-width:150px;
+      background-color:rgb(255, 255, 255);
+      border-radius:10px;
+      margin:10px;
+      flex:1 100px;
+    }
+
+    .barra a {
+      display:block;
+    }
+    #imagen-interactiva {
+      position: relative;
+      width: 500px;
+      height: 650px;
+      background-image: url('imagenes/MenuPizza.jpg');
+      background-size: cover;
+      border: 2px solid #000;
+      border-radius: 10px;
+    }
+
+    #hotspot1 {
+      position: absolute;
+      top: 120px;
+      left: 200px;
+      width: 40px;
+      height: 40px;
+      background-color: #0015ff80;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #hotspot2 {
+      position: absolute;
+      top: 230px;
+      left: 200px;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 21, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #hotspot3 {
+      position: absolute;
+      top: 360px;
+      left: 200px;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 21, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #hotspot4 {
+      position: absolute;
+      top: 470px;
+      left: 200px;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 21, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    #hotspot5 {
+      position: absolute;
+      top: 580px;
+      left: 200px;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 21, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .text-hotspot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: bold;
+    }
+
+    #instrucciones {
+      flex:1;
+      cursor: pointer;
+    }
+
+    #prueba {
+      flex:1;
+      cursor:pointer;
+    }
+
+    .texto-rojo{
+            font-size:40px;
+            font-weight: bold;
+            color:red;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div class="nav" style="text-align:center;">
+      <h3>BIENVENIDOS A "Conociendo sobre la pizza"</h3>
+    </div>
+  </div>
+  <div id="seccion">
+    <div class="barra">
+        <div id="imagen-interactiva">
+          <div id="hotspot1"><span class="text-hotspot">MA</span></div>
+          <div id="hotspot2"><span class="text-hotspot">QI</span></div>
+          <div id="hotspot3"><span class="text-hotspot">DA</span></div>
+          <div id="hotspot4"><span class="text-hotspot">PA</span></div>
+          <div id="hotspot5"><span class="text-hotspot">FE</span></div>
+        </div>
+    </div>
+    <div class="contenido">
+      <div class="subcontenido1">
+        <h2 id="titulo-info">INSTRUCCIONES</h2>
+        <p id="texto-info">Haz clic en cada punto de la imagen para ver su explicación. Después de explorar el interactivo, completa el test de conocimientos.</p>
+      </div>
+      <div class="subcontenido2">
+        <div class="proyecto">
+          <img id="imagen-info" src="Imagenes/hotspot-cursor.png" alt="Imagen info" style="width:100%; height:100%; border-radius:10px;">
+        </div>
+      </div>
+      <div id="resultado" class="invisible">
+        <h2>Tu resultado:</h2>
+        <span id="calif" class="texto-rojo">0/0</span>
+        <img id="imagen-resultado" width="200px" src="Imagenes/Pulgar.jpg" />
+      </div>      
+    </div>
+  </div>
+  <div id="footer">
+    <div id="instrucciones"><img width="100px" src="Imagenes/instrucciones.png" /></div>
+    <div id="prueba"><img width="100px" src="Imagenes/test.png" /></div>
+  </div>
+  <script type="text/javascript">
+    let puntaje = 0;
+    let pregunta1 = "";
+    let pregunta2 = "";
+    let pregunta3 = "";
+    let pregunta4 = "";
+    let pregunta5 = "";
+    let pregunta6 = "";
+    let pregunta7 = "";
+    let pregunta8 = "";
+    let pregunta9 = "";
+    let pregunta10 = "";
+    
+    
+
+    document.getElementById('hotspot1').onclick = function() {
+      document.getElementById('titulo-info').textContent = 'Pizza Margarita';
+      document.getElementById('texto-info').textContent = 'La Pizza Margarita es un homenaje a la pureza de los sabores italianos. Su base de masa fina, la salsa de tomate natural, la mozzarella fresca y las hojas de albahaca representan un equilibrio perfecto de ingredientes frescos que evocan la frescura del verano y la sencillez de la tradición napolitana. La combinación de estos ingredientes, al estar tan bien equilibrada, crea una experiencia de sabor inconfundible, donde cada bocado es una celebración de lo más básico y delicioso de la cocina italiana.';
+      document.getElementById('imagen-info').setAttribute('src', 'Imagenes/Margarita.jpg');    
+    };
+
+    document.getElementById('hotspot2').onclick = function() {
+      document.getElementById('titulo-info').textContent = 'Pizza Quattro Stagioni';
+      document.getElementById('texto-info').textContent = 'La Pizza Quattro Stagioni es otra de las grandes clásicas de la pizza italiana, famosa por su variedad y complejidad de sabores. Su nombre, que significa "Cuatro Estaciones" en italiano, hace referencia a los cuatro ingredientes principales que se distribuyen en la pizza de una manera que representa las estaciones del año.';
+      document.getElementById('imagen-info').setAttribute('src', 'Imagenes/Stagioni.jpg');
+    };
+    document.getElementById('hotspot3').onclick = function() {
+      document.getElementById('titulo-info').textContent = 'Pizza Diavola';
+      document.getElementById('texto-info').textContent = 'La Pizza Diavola es una pizza italiana conocida por su toque picante y sabroso. Su nombre proviene de la palabra "diavola", que en italiano significa "diablo", haciendo referencia a la intensidad del sabor que proviene de sus ingredientes picantes. Es una de las opciones más populares entre los amantes de la pizza que disfrutan de un poco de "fuego" en su comida.';
+      document.getElementById('imagen-info').setAttribute('src', 'Imagenes/Diavola.jpg');
+    };
+      document.getElementById('hotspot4').onclick = function() {
+      document.getElementById('titulo-info').textContent = 'Pizza Parmigiana';
+      document.getElementById('texto-info').textContent = 'La Pizza Parmigiana es una deliciosa y reconfortante pizza que se inspira en el clásico plato italiano de la melanzane alla parmigiana (berenjenas a la parmesana), uno de los platos más tradicionales y populares de la cocina del sur de Italia, especialmente de Sicilia y Nápoles.';
+      document.getElementById('imagen-info').setAttribute('src', 'Imagenes/Parmigiana.jpg');
+    };
+      document.getElementById('hotspot5').onclick = function() {
+      document.getElementById('titulo-info').textContent = 'Pizza Frutti Di Mare';
+      document.getElementById('texto-info').textContent = 'La Pizza Frutti di Mare es una deliciosa y sofisticada variante de pizza que celebra los sabores del mar. Como su nombre indica, "frutti di mare" significa literalmente "frutos del mar" en italiano, y esta pizza se caracteriza por llevar una variedad de mariscos frescos como ingredientes principales. Es una opción muy popular en las regiones costeras de Italia, donde el pescado y los mariscos frescos son la base de muchos platos tradicionales.';
+      document.getElementById('imagen-info').setAttribute('src', 'Imagenes/Dimare.jpg');
+    };
+
+    document.getElementById('instrucciones').onclick = function(){
+      document.getElementById('titulo-info').textContent = 'INSTRUCCIONES';
+      document.getElementById('texto-info').textContent = 'Haz clic en cada punto de la imagen para ver su explicación. Después de explorar el interactivo, completa el test de conocimientos.';
+      document.getElementById('imagen-info').setAttribute('src', 'Imagenes/hotspot-cursor.png');
+    };
+
+    document.getElementById('prueba').onclick = function(){
+      alert("Bienvenidos a la prueba de conocimientos");
+      alert("Responde correctamente todas las preguntas para ganar");
+
+       if(pregunta1 = prompt("¿De qué país es originaria la pizza?")){
+
+            pregunta1 = pregunta1.trim();
+            
+        }
+        if (pregunta1.toLowerCase() === "italia") {
+            alert("¡Correcto! La pizza es originaria de Italia.");
+            puntaje += 1;
+        } else {
+            alert("Incorrecto. La respuesta correcta es: Italia.");
+        }
+
+        if(pregunta2 = prompt("¿Cuál es la pizza más tradicional y emblemática de Italia?")){
+
+            pregunta2 = pregunta2.trim();
+            
+        }
+        if (pregunta2.toLowerCase() === "pizza margarita") {
+            alert("Respuesta: ¡Correcto! La pizza más emblemática es la Pizza Margarita.");
+            puntaje += 1;
+        } else {
+            alert("Incorrecto. La respuesta correcta es: Pizza Margarita.");
+        }
+
+         if(pregunta3 = prompt("¿Qué ingredientes son comunes en la pizza tradicional napolitana?")){
+
+            pregunta3 = pregunta3.trim();
+            
+        }
+        if (pregunta3.toLowerCase() === "masa, salsa de tomate, mozzarella, aceite de oliva y albahaca") {
+            alert("¡Correcto! Los ingredientes son: masa, salsa de tomate, mozzarella, aceite de oliva y albahaca.");
+            puntaje += 1;
+        } else {
+            alert("Incorrecto. La respuesta correcta es: masa, salsa de tomate, mozzarella, aceite de oliva y albahaca.");
+        }
+       
+        if(pregunta4 = prompt("¿Cómo se llama la organización que certifica las pizzas napolitanas auténticas?")){
+
+            pregunta4 = pregunta4.trim();
+            
+        }
+        if (pregunta4.toLowerCase() === "associazione verace pizza napoletana") {
+            alert("¡Correcto! La organización es la Associazione Verace Pizza Napoletana.");
+            puntaje += 1;
+        } else {
+            alert("Incorrecto. La respuesta correcta es: Associazione Verace Pizza Napoletana.");
+        }
+       
+        if(pregunta5 = prompt("¿Cuál es la diferencia entre la pizza napolitana y la pizza romana?")){
+
+            pregunta5 = pregunta5.trim();
+            
+        }
+        if (pregunta5.toLowerCase() === "la pizza napolitana tiene una masa más gruesa y aireada, mientras que la pizza romana es más delgada y crujiente") {
+            alert("¡Correcto! La diferencia es que la pizza napolitana tiene una masa más gruesa y aireada, mientras que la pizza romana es más delgada y crujiente.");
+            puntaje += 1;
+        } else {
+            alert("Incorrecto. La respuesta correcta es: La pizza napolitana tiene una masa más gruesa y aireada, mientras que la pizza romana es más delgada y crujiente.");
+        }
+
+        if(pregunta6 = prompt("¿Qué tipo de queso se utiliza en la pizza Margarita?")){
+
+            pregunta6 = pregunta6.trim();
+            
+        }
+        if (pregunta6.toLowerCase() === "mozzarella") {
+            alert("¡Correcto! El queso utilizado es mozzarella.");
+            puntaje += 1;
+        } else {
+            alert("Incorrecto. La respuesta correcta es: mozzarella.");
+        }
+
+         if(pregunta7 = prompt("¿Cómo se llama el horno tradicional utilizado para hacer pizza en Italia?")){
+
+            pregunta7 = pregunta7.trim();
+            
+        }
+        if (pregunta7.toLowerCase() === "horno de leña") {
+            alert("¡Correcto! El horno tradicional es el horno de leña.");
+            puntaje += 1;
+        } else {
+            alert("Incorrecto. La respuesta correcta es: horno de leña.");
+        }
+
+          if(pregunta8 = prompt("¿Qué es la Pizza Quattro Formaggi?")){
+
+            pregunta8 = pregunta8.trim();
+            
+        }
+        if (pregunta8.toLowerCase() === "una pizza con cuatro tipos de queso") {
+            alert("Respuesta: ¡Correcto! Una pizza que lleva cuatro tipos de queso.");
+            puntaje += 1;
+        } else {
+            alert("Incorrecto. La respuesta correcta es: cuatro tipos de queso.");
+        }
+
+         if(pregunta9 = prompt("¿Cuál es el nombre de la pizza con ingredientes como salami picante, peperoni o chorizo?")){
+
+            pregunta9 = pregunta9.trim();
+            
+        }
+        if (pregunta9.toLowerCase() === "pizza diavola") {
+            alert("Respuesta: ¡Correcto! Esa pizza se llama Pizza Diavola.");
+            puntaje += 1;
+        } else {
+            alert("Incorrecto. La respuesta correcta es: Pizza Diavola.");
+        }
+
+           if(pregunta10 = prompt("¿Qué caracteriza a la pizza Calzone?")){
+
+            pregunta10 = pregunta10.trim();
+            
+        }
+        if (pregunta10.toLowerCase() === "es una pizza cerrada, como una especie de empanada, con los mismos ingredientes que una pizza tradicional") {
+            alert("¡Correcto! La pizza Calzone es una pizza cerrada, como una especie de empanada, con los mismos ingredientes que una pizza tradicional.");
+            puntaje += 1;
+        } else {
+            alert("Incorrecto. La respuesta correcta es: una pizza cerrada, como una especie de empanada, con los mismos ingredientes que una pizza tradicional.");
+        }
+
+        if(puntaje >= 1) {
+            alert("¡Felicidades! Has respondido correctamente todas las preguntas.");
+            //document.getElementById("fiesta").setAttribute("class", "visible");
+            document.getElementById("calif").textContent = puntaje + "/10";
+            document.getElementById("resultado").setAttribute("class", "visible");
+            
+        } else {
+            alert("Has respondido " + puntaje + " preguntas correctamente. ¡Sigue intentando!");
+
+        }
+    };
+  </script>
+
+</body>
+</html>
